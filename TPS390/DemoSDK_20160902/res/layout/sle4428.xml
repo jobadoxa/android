@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include layout="@layout/titlebar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/sle4428open_btn"
+                    style="@style/buttonNumberStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_number_violet_shape"
+                    android:text="@string/open_reader" />
+
+                <Button
+                    android:id="@+id/sle4428close_btn"
+                    style="@style/buttonNumberStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_number_violet_shape"
+                    android:text="@string/close_reader" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/sle4428poweron_btn"
+                    style="@style/buttonNumberStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_number_violet_shape"
+                    android:text="@string/power_on" />
+
+                <Button
+                    android:id="@+id/sle4428poweroff_btn"
+                    style="@style/buttonNumberStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_number_violet_shape"
+                    android:text="@string/power_off" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/sle4428read_btn"
+                    style="@style/buttonNumberStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_number_violet_shape"
+                    android:text="@string/ul_read_card" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sle4428read_addr"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/sle4428addr_edt"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:maxLength="4"
+                        android:text="0"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sle4428read_num"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/sle4428num_edt"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:maxLength="4"
+                        android:text="1024"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/sle4428read_result_edt"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:background="@android:drawable/edit_text"
+                    android:editable="false"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <Button
+                        android:id="@+id/sle4428write_btn"
+                        style="@style/buttonNumberStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_number_violet_shape"
+                        android:text="@string/ul_write_card" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sle4428write_addr"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/sle4428write_addr_edt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:maxLength="4"
+                        android:text="0"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/content"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/sle4428write_content_edt"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@android:drawable/edit_text"
+                    android:maxLength="1024"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/PSC"
+                        android:textSize="14sp" />
+
+                    <Button
+                        android:id="@+id/sle4428verify_psc_btn"
+                        style="@style/buttonNumberStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_number_violet_shape"
+                        android:text="@string/verify" />
+
+                    <Button
+                        android:id="@+id/sle4428modify_psc_btn"
+                        style="@style/buttonNumberStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_number_violet_shape"
+                        android:text="@string/modify" />
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/sle4428psc_edt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:drawable/edit_text"
+                    android:maxLength="4"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

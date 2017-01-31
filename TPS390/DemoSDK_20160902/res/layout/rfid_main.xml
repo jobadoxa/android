@@ -1,0 +1,45 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f5f5"
+    android:orientation="vertical" >
+
+    <include layout="@layout/titlebar" />
+
+    <Button
+        android:id="@+id/get_sn"
+        style="@style/buttonNumberStyle"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/button_number_violet_shape"
+        android:text="@string/get_rfid_sn" />
+
+    <Button
+        android:id="@+id/m1_test"
+        style="@style/buttonNumberStyle"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/button_number_violet_shape"
+        android:text="@string/m1_card_test" />
+    
+    <Button
+        android:id="@+id/ul_test"
+        style="@style/buttonNumberStyle"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/button_number_violet_shape"
+        android:text="@string/ul_card_test" />
+    
+    <Button
+        android:id="@+id/cpucard_test"
+        style="@style/buttonNumberStyle"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/button_number_violet_shape"
+        android:text="@string/cpu_card_test" />
+
+</LinearLayout>

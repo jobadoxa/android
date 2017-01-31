@@ -1,0 +1,124 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using MACS_Bus_Ticketing;
+using System.IO;
+
+namespace MACS_Bus_Ticketing
+{
+    public partial class Comunication : Form
+    {
+        
+        public Comunication()
+        {
+            InitializeComponent();
+        }
+
+        string folderPath;
+
+        private void btOk_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        public string port { get; set; }
+        public int baudRate { get; set; }
+        public System.IO.Ports.StopBits stopBits { get; set; }
+        public System.IO.Ports.Parity parity { get; set; }
+        public int DataBits { get; set; }
+
+        private void Comunication_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                
+
+                StreamWriter sw = new StreamWriter("config.txt");
+                sw.WriteLine(folderPath);
+                port = cbPort.Text;
+                sw.WriteLine(port);
+                baudRate = Convert.ToInt32(cbBoundRate.Text);
+                sw.WriteLine(cbBoundRate.Text);
+                DataBits = Convert.ToInt32(cbDataBits.Text);
+                sw.WriteLine(cbDataBits.Text);
+                switch (cbParity.Text)
+                {
+                    case "None":
+                        parity = System.IO.Ports.Parity.None;
+                        
+                        break;
+                    case "Odd":
+                        parity = System.IO.Ports.Parity.Odd;
+                        break;
+                    case "Even":
+                        parity = System.IO.Ports.Parity.Even;
+                        break;
+                    case "Mark":
+                        parity = System.IO.Ports.Parity.Mark;
+                        break;
+                    case "Space":
+                        parity = System.IO.Ports.Parity.Space;
+                        break;
+
+                }
+                sw.WriteLine(cbParity.Text);
+                switch (cbStopBits.Text)
+                {
+                    case "None":
+                        stopBits = System.IO.Ports.StopBits.None;
+                        break;
+                    case "One":
+                        stopBits = System.IO.Ports.StopBits.One;
+                        break;
+                    case "Two":
+                        stopBits = System.IO.Ports.StopBits.Two;
+                        break;
+                    case "OnePointFive":
+                        stopBits = System.IO.Ports.StopBits.OnePointFive;
+                        break;
+
+                }
+                sw.WriteLine(cbStopBits.Text);
+                
+                sw.Close();
+            }
+            catch {
+                MessageBox.Show("You do not set up your connection correctly.","ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                
+            } }
+
+        private void Comunication_Load(object sender, EventArgs e)
+        {
+            
+            try
+            {
+                cbPort.Items.AddRange(System.IO.Ports.SerialPort.GetPortNames());
+           
+            StreamReader sr = new StreamReader("config.txt");
+                folderPath= sr.ReadLine();
+                if (cbPort.Items.Count > 0)
+                    cbPort.SelectedText = sr.ReadLine();
+                else
+                    sr.ReadLine();
+                cbBoundRate.SelectedText = sr.ReadLine();
+                cbDataBits.SelectedText = sr.ReadLine();
+                cbParity.SelectedText = sr.ReadLine();
+                cbStopBits.SelectedText = sr.ReadLine();
+                sr.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("There is no available port to set up connection.","ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+        }
+
+        
+
+        
+    }
+}

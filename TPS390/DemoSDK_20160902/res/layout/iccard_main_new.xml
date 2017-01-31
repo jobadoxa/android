@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f5f5"
+    android:orientation="vertical" >
+
+    <include layout="@layout/titlebar" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        android:layout_margin="15dp"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="75dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/sle4442_btn"
+                style="@style/buttonNumberStyle"
+                android:layout_width="120dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:background="@drawable/button_number_violet_shape"
+                android:height="45dp"
+                android:orientation="horizontal"
+                android:text="SLE4442"
+                android:width="120dp" />
+
+            <View
+                android:layout_width="15dp"
+                android:layout_height="fill_parent" >
+            </View>
+
+            <Button
+                android:id="@+id/sle4428_btn"
+                style="@style/buttonNumberStyle"
+                android:layout_width="120dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:background="@drawable/button_number_violet_shape"
+                android:height="45dp"
+                android:orientation="horizontal"
+                android:text="SLE4428"
+                android:width="120dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="75dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/smartcard"
+                style="@style/buttonNumberStyle"
+                android:layout_width="120dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:background="@drawable/button_number_violet_shape"
+                android:height="45dp"
+                android:orientation="horizontal"
+                android:text="smart card"
+                android:width="120dp" />
+
+            <View
+                android:layout_width="15dp"
+                android:layout_height="fill_parent" >
+            </View>
+
+            <Button
+                android:id="@+id/monitor_btn"
+                style="@style/buttonNumberStyle"
+                android:layout_width="120dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:background="@drawable/button_number_violet_shape"
+                android:height="45dp"
+                android:orientation="horizontal"
+                android:text="Auto Monitor"
+                android:width="120dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

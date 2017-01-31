@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Telpo_SDK</string>
+    
+    <!-- Print -->
+    <string name="print_test">Print Test</string>
+    <string name="printer_version">Printer Version：</string>
+	<string name="bar_code">Barcode:</string>
+	<string name="print_bar_code">Print Barcode</string>
+	<string name="D_bar_code">Qrcode:</string>
+	<string name="print_2D_barcode">Print Qrcode</string>
+	<string name="walk_paper_lines">Walk Paper Lines:</string>
+	<string name="walk_paper_test">Walk Paper</string>
+	<string name="left_margin">Left Margin:</string>
+	<string name="right_margin">Right Margin</string>
+	<string name="row_space">Row Space:</string>
+	<string name="font_size">Font Size：</string>
+	<string name="gray_level">Gray Level:</string>
+	<string name="print_content">Print Content：</string>
+	<string name="chinese_example">ZH Example</string>
+	<string name="english_example">EN Example</string>
+	<string name="clear_text">Clear</string>
+	<string name="print_text">Print Text</string>
+	<string name="printing_wait">Printing, please wait……</string>
+	<string name="D_barcode_loading">Qrcode loading</string>
+	<string name="generate_barcode_wait">Generating barcode, please wait……</string>
+	<string name="input_print_data">Please input print data</string>
+    <string name="maker_search_distance">Walk Paper For Search Black Block:</string>
+    <string name="maker_walk_distance">Walk Paper After Haved Search:</string>
+    <string name="maker_walk_distance_range">(0-255)</string>
+    <string name="maker">Black Block Detection</string>
+    <string name="maker_error">maker input value not fit</string>
+    <string name="maker_not_find">Cannot Find Black Block</string>
+    <string name="papercut">Paper Cut</string>
+    <string name="walk_paper_intput_value">walk paper intput value not fit</string>
+    <string name="print_picture">Print Picture</string>
+    <string name="sure">sure</string>
+    <string name="not_find_picture">not find picture</string>
+    <string name="input_command">Please Input Command</string>
+    <string name="execute_command">Execute Command</string>
+    <string name="watting">Please wait while checking driver version</string>
+    <string name="noPaper">No paper</string>  
+    <string name="noPaperNotice">No paper, please put paper in and retry</string>
+    <string name="LowBattery">Low battery, please connect the charger!</string>
+    <string name="overTemp">over temp !</string>
+    <string name="ptintInit">Printer initialing... Please try again after a few seconds.</string>
+    <string name="outOfLeft">Beyond the left margin！</string>
+    <string name="outOfLine">Beyond the row space！</string>
+    <string name="outOfFont">Beyond the font size！</string>
+    <string name="outOfGray">Beyond the gray level！</string>
+    <string name="outOfCharSpace">Beyond The Char Space！</string>
+    <string name="empty">The content is empty！</string>
+    <string name="lengthNotEnougth">The length is not enough！</string>  
+    <string name="index_text">Print Text</string>  
+    <string name="index_pic">Picture/Qrcode</string>
+    <string name="index_comm">Print Command</string>
+    <string name="input_content">input content</string>   
+    <string name="dialog_comfirm">ConFirm</string>
+    <string name="operation_result">Result</string>
+    <string name="bl_dy">Print</string>
+    <string name="print_waring">Tip: If the SDK provides the function of can not meet your printing needs, you can send the print instruction way for implementation</string>
+    <string name="char_space">Char Space:</string>
+    <string name="printer_type_common">Common Printer</string>
+    <string name="printer_type_usb">USB Printer</string>
+    <string name="printer_type_select">Select Printer Type</string>
+    
+    <!-- Scan barcode or qrcode -->
+    <string name="qrcode_verify">Qrcode</string>
+    
+    <!-- Magnetic Card -->
+    <string name="magnetic_card_test">Magnetic Card</string> 
+    <string name="track1">Track1</string>
+    <string name="track2">Track2</string>
+    <string name="track3">Track3</string>
+    <string name="read_card">Swipe Card</string>
+    <string name="quit">quit</string>
+    <string name="error_open_magnetic_card">Could not open magnetic card device</string>
+    <string name="error">Error</string>
+    
+    <!-- RFID -->
+    <string name="rfid_test">RFID Test</string>
+    <string name="operation_fail">Operation failed</string>
+    <string name="init_card">Initialize</string>
+    <string name="query">Query</string>
+    <string name="consume">Consume</string>
+    <string name="recharge">Charge</string>
+    <string name="opening">Connecting card reader</string>
+    <string name="operating">Processing</string>
+    <string name="operation_succss">Operate Success</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+    <string name="input_init_amount">Please input amount</string>
+    <string name="input_consume_amount">Please input amount</string>
+    <string name="input_recharge_amount">Please input amount</string>
+    <string name="balance">Blance</string>
+    <string name="no_enough_balance">Insufficient Balance</string>
+    <string name="input_amount">Input amount</string>
+    <string name="cpu_card_test">Cpu Card Test</string>
+    <string name="check_version">Please wait while checking driver version</string>
+    <string name="get_rfid_sn">Get Card Information</string>
+    <string name="m1_card_test">M1 Card Test</string>
+    <string name="ul_card_test">Ultralight Card Test</string>
+    <string name="card_sn">Card number is:</string>
+    <string name="ul_read_card">Read Card</string>
+    <string name="ul_write_card">Write Card</string>
+    <string name="read_succss">Read Success</string>
+    <string name="write_succss">Write Success</string>
+    <string name="cpucard_send_apdu_command">Send APDU Command</string>
+    
+    <!-- ID Card -->
+    <string name="identity_test">ID Card Test</string>
+    <string name="bl_xsdxx">Displayed Info:</string>
+    <string name="idcard_czz">Proceeding...</string>
+    <string name="idcard_ljdkq">Connecting to ID reader...</string>
+    <string name="idcard_ljdkqcg">Connect reader success</string>
+    <string name="idcard_wfljdkq">Connect reader failed</string>
+    <string name="idcard_dqsbhcs">Read failed or time out</string>
+    <string name="idcard_xm">Name:</string>
+    <string name="idcard_xb">Gender:</string>
+    <string name="idcard_mz">Nation:</string>
+    <string name="idcard_csrq">Birthday:</string>
+    <string name="idcard_dz">Address:</string>
+    <string name="idcard_sfhm">ID：</string>
+    <string name="idcard_qzjg">Issuing authority：</string>
+    <string name="idcard_yxqx">"Exp date: "</string>
+    <string name="idcard_hqsfzxx">Get ID card information</string>
+    <string name="idcard_xzgn">Select function</string>
+    <string name="idcard_xzsfsbfs">Please choose a mode for ID identification</string>
+    <string name="idcard_sxtsb">Identification by camera OCR</string>
+    <string name="idcard_dkqsb">"Identification by card reader"</string>
+    <string name="select_show_head_photo">whether show head photo</string>
+    <string name="select_show_head_photo_true">true</string>
+    <string name="select_show_head_photo_false">false</string>
+    <string name="get_id_front_fail">Failure to obtain positive information card</string>
+    <string name="get_id_front_success">Successfully obtain identity cards positive messages</string>
+    <string name="get_id_back_fail">Negative information failed to obtain ID cards</string>
+    <string name="get_id_back_success">Successfully obtain identity cards negative information</string>
+    <string name="identify_fail">API module is not installed, can not be two-dimensional code / ID card identification</string>
+    <string name="none"> </string>
+    <string name="idCard_front_info">ID positive messages</string>
+    <string name="idCard_back_info">ID negative information</string>
+    <string name="idcard_zwxx">Fingerprint information:</string>
+    <string name="idcard_ysmz">right thumb</string>
+    <string name="idcard_yssz">index finger of the right hand</string>
+    <string name="idcard_yszz">middle finger of the right hand</string>
+    <string name="idcard_yshz">ring finger of the right hand</string>
+    <string name="idcard_ysxz">little finger of the right hand</string>
+    <string name="idcard_zsmz">left thumb</string>
+    <string name="idcard_zssz">index finger of the left hand</string>
+    <string name="idcard_zszz">middle finger of the left hand</string>
+    <string name="idcard_zshz">ring finger of the left hand</string>
+    <string name="idcard_zsxz">little finger of the left hand</string>
+    <string name="idcard_ysbqdzw">uncertain finger of the right hand</string>
+    <string name="idcard_zsbqdzw">uncertain finger of the left hand</string>
+    <string name="idcard_qtbqdzw">other uncertain finger</string>
+    <string name="idcard_zwwz">uncertain finger</string>
+    <string name="idcard_zccg">register success</string>
+    <string name="idcard_zcsb">register fail</string>
+    <string name="idcard_wzc">uregister</string>
+    <string name="idcard_zcztwz">unknow register</string>
+    <string name="idcard_zwzl">fingerprint quality=</string>
+    <string name="idcard_wdqhbhzw">(Fingerprint is not read or not included the fingerprint)</string>
+    
+    <!-- IC/PSAM -->
+    <string name="pcsc_test">IC Card Test</string>
+    <string name="psam_test">PSAM Test</string>
+    <string name="open_reader">Open Reader</string>
+    <string name="close_reader">Close Reader</string>
+    <string name="verify">Verify</string>
+    <string name="modify">Modify</string>    
+    <string name="sle4442read_addr">addr(0~255):</string>
+    <string name="sle4442read_numm">num(1~256):</string>
+    <string name="sle4442write_addr">addr(0~255):</string>     
+    <string name="sle4428read_addr">addr(0~1023):</string>
+    <string name="sle4428read_num">num(0~1024):</string>
+    <string name="sle4428write_addr">addr(0~1023):</string>
+    <string name="content">content:</string>
+    <string name="PSC">PSC</string>
+    <string name="reader">Reader:</string>
+    <string name="get_ATR">get ATR</string>
+    <string name="get_PROTOCOL">get protocol</string>
+    <string name="apdu_to_send">APDU to send</string>
+    <string name="send_apdu">Send APDU</string>
+    <string name="get_ATR_fail">get ATR fail</string>
+    <string name="get_ATR_success">get ATR success：</string>
+    <string name="get_data_success">get data success</string>
+    <string name="get_protocol_success">get protocol success</string>
+    <string name="power_on">Power on</string>
+    <string name="power_off">Power off</string>
+    <string name="send_APDU_fail">send APDU fail</string>
+    <string name="send_APDU_success">send APDU success,return：</string>
+    <string name="send_comm_success">send command success</string>
+    <string name="ic_waring">Tip：\nATR:Reset response instructions\nprotocol：Communication protocol\n"A0A40000023F00":Open the smart kagan directory commands\nAPDU:Smart card communication instruction</string>       
+    
+    <!-- HDMI -->
+    <string name="hdmi">HDMI Test</string>
+    <string name="hdmi_switch">Switch To HDMI</string>
+    <string name="hdmi_tv_notify">before use this method,ensure Dual screen is opening in system setting</string>
+    
+    <!-- MoneyBox  -->
+    <string name="moneybox_test">MoneyBox Test</string>
+    <string name="moneybox_open">Open MoneyBox</string>
+    <string name="moneybox_toast_text_low_battery">The battery is low,Please connect the charger</string>
+    
+    <!-- IR -->
+    <string name="ir_test">IR Test</string>
+    <string name="ir_tv_initializing">Initializing,Please Waiting...</string>    
+    <string name="ir_tv_staff_stat">Personnel Status：　</string>
+    <string name="ir_tv_close">Close</string>
+    <string name="ir_tv_leave">Leave</string>
+    
+    <!-- Led -->
+    <string name="led">LED Test</string>
+    <string name="led_bt_green_open">Open Green Led</string>
+    <string name="led_bt_green_close">Close Green Led</string>
+    <string name="led_bt_red_open">Open Red Led</string>
+    <string name="led_bt_red_close">Close Red Led</string>
+    
+    <!--Laser -->
+    <string name="decode">Laser Test</string>
+    <string name="decode_read">Read Data</string>   
+    
+    <!-- NFC -->
+    <string name="nfc">NFC Test</string>
+    <string name="nfc_tv_scanning">Scanning...</string>
+        
+</resources>

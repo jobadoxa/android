@@ -1,0 +1,57 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+ <include
+        android:id="@+id/titlebar"
+        layout="@layout/titlebar" />
+    <Button
+        android:id="@+id/opengreen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="@string/led_bt_green_open"
+        android:onClick="onClick"
+        android:background="@drawable/button_number_violet_shape"
+         />
+
+    <Button
+        android:id="@+id/closegreen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="@string/led_bt_green_close"
+        android:onClick="onClick"
+        android:background="@drawable/button_number_violet_shape"
+         />
+
+    <Button
+        android:id="@+id/openred"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="@string/led_bt_red_open"
+        android:onClick="onClick"
+        android:background="@drawable/button_number_violet_shape"
+         />
+
+    <Button
+        android:id="@+id/closered"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="@string/led_bt_red_close" 
+        android:onClick="onClick"
+        android:background="@drawable/button_number_violet_shape"
+        />
+
+</LinearLayout>

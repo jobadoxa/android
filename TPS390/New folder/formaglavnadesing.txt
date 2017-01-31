@@ -1,0 +1,218 @@
+namespace MACS_Bus_Ticketing
+{
+    partial class MACSBusTicketing
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MACSBusTicketing));
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.choseFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.communicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.storageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.serialPort = new System.IO.Ports.SerialPort(this.components);
+            this.btOpenConnection = new System.Windows.Forms.Button();
+            this.btViewFile = new System.Windows.Forms.Button();
+            this.btSendFile = new System.Windows.Forms.Button();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.menuStrip.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // menuStrip
+            // 
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.toolsToolStripMenuItem,
+            this.helpToolStripMenuItem});
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(484, 24);
+            this.menuStrip.TabIndex = 0;
+            this.menuStrip.Text = "menuStrip";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.choseFileToolStripMenuItem,
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // choseFileToolStripMenuItem
+            // 
+            this.choseFileToolStripMenuItem.Name = "choseFileToolStripMenuItem";
+            this.choseFileToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.choseFileToolStripMenuItem.Text = "Open File...";
+            this.choseFileToolStripMenuItem.Click += new System.EventHandler(this.choseFileToolStripMenuItem_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // toolsToolStripMenuItem
+            // 
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.communicationToolStripMenuItem,
+            this.storageToolStripMenuItem});
+            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
+            this.toolsToolStripMenuItem.Text = "Preferences";
+            // 
+            // communicationToolStripMenuItem
+            // 
+            this.communicationToolStripMenuItem.Name = "communicationToolStripMenuItem";
+            this.communicationToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.communicationToolStripMenuItem.Text = "Communication";
+            this.communicationToolStripMenuItem.Click += new System.EventHandler(this.communicationToolStripMenuItem_Click);
+            // 
+            // storageToolStripMenuItem
+            // 
+            this.storageToolStripMenuItem.Name = "storageToolStripMenuItem";
+            this.storageToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.storageToolStripMenuItem.Text = "Storage";
+            this.storageToolStripMenuItem.Click += new System.EventHandler(this.storageToolStripMenuItem_Click);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // serialPort
+            // 
+            this.serialPort.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort_DataReceived);
+            // 
+            // btOpenConnection
+            // 
+            this.btOpenConnection.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btOpenConnection.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btOpenConnection.Location = new System.Drawing.Point(41, 57);
+            this.btOpenConnection.Name = "btOpenConnection";
+            this.btOpenConnection.Size = new System.Drawing.Size(140, 40);
+            this.btOpenConnection.TabIndex = 1;
+            this.btOpenConnection.Text = "Open connection";
+            this.btOpenConnection.UseVisualStyleBackColor = false;
+            this.btOpenConnection.Click += new System.EventHandler(this.btOpenConnection_Click);
+            // 
+            // btViewFile
+            // 
+            this.btViewFile.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btViewFile.Enabled = false;
+            this.btViewFile.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btViewFile.Location = new System.Drawing.Point(41, 202);
+            this.btViewFile.Name = "btViewFile";
+            this.btViewFile.Size = new System.Drawing.Size(140, 40);
+            this.btViewFile.TabIndex = 2;
+            this.btViewFile.Text = "View file";
+            this.btViewFile.UseVisualStyleBackColor = false;
+            this.btViewFile.Click += new System.EventHandler(this.btViewFile_Click);
+            // 
+            // btSendFile
+            // 
+            this.btSendFile.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btSendFile.Enabled = false;
+            this.btSendFile.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btSendFile.Location = new System.Drawing.Point(41, 360);
+            this.btSendFile.Name = "btSendFile";
+            this.btSendFile.Size = new System.Drawing.Size(140, 40);
+            this.btSendFile.TabIndex = 3;
+            this.btSendFile.Text = "Send file";
+            this.btSendFile.UseVisualStyleBackColor = false;
+            this.btSendFile.Click += new System.EventHandler(this.btSendFile_Click);
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(215, 370);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(100, 22);
+            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.progressBar1.TabIndex = 4;
+            this.progressBar1.Visible = false;
+            // 
+            // MACSBusTicketing
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackColor = System.Drawing.SystemColors.Highlight;
+            this.ClientSize = new System.Drawing.Size(484, 461);
+            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.btSendFile);
+            this.Controls.Add(this.btViewFile);
+            this.Controls.Add(this.btOpenConnection);
+            this.Controls.Add(this.menuStrip);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip;
+            this.Name = "MACSBusTicketing";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "MACS Bus Ticketing";
+            this.Load += new System.EventHandler(this.MACSBusTicketing_Load);
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.MenuStrip menuStrip;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem choseFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem communicationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem storageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.IO.Ports.SerialPort serialPort;
+        private System.Windows.Forms.Button btOpenConnection;
+        private System.Windows.Forms.Button btViewFile;
+        private System.Windows.Forms.Button btSendFile;
+        private System.Windows.Forms.ProgressBar progressBar1;
+    }
+}
+

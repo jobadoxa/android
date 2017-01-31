@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/print_comm"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f5f5"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/edittext_input_command"
+            android:layout_width="fill_parent"
+            android:layout_height="48dp"
+            android:hint="@string/input_command"
+            android:textColor="@color/color_6b6b6b" />
+
+        <Button
+            android:id="@+id/button_execute_command"
+            style="@style/buttonNumberStyle"
+            android:layout_width="fill_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_number_violet_shape"
+            android:text="@string/execute_command" />
+        
+        <TextView 
+            android:layout_marginTop="10dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/print_waring"/>
+    </LinearLayout>
+
+</LinearLayout>

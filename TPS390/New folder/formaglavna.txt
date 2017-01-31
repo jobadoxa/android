@@ -1,0 +1,378 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using Microsoft.Office.Interop.Excel;
+using System.IO.Ports;
+using System.IO;
+using System.Runtime.InteropServices;
+namespace MACS_Bus_Ticketing
+{
+    public partial class MACSBusTicketing : Form
+    {
+        int k;
+        string folderPath = "";
+        string path = "";
+        [DllImport("user32.dll")]
+        static extern int GetWindowThreadProcessId(int hWnd, out int lpdwProcessId);
+        public MACSBusTicketing()
+        {
+            InitializeComponent();
+        }
+        
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           System.Windows.Forms.Application.Exit();
+            
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            About a = new About();
+            a.ShowDialog(this);
+        }
+
+        private void storageToolStripMenuItem_Click(object sender, EventArgs e)
+        {   
+            
+            FolderBrowserDialog folderBrowserDialog1 = new FolderBrowserDialog();
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                folderPath = folderBrowserDialog1.SelectedPath;
+                btViewFile.Enabled = false;
+                
+                StreamReader sr = new StreamReader("config.txt");
+                sr.ReadLine();
+                string port = sr.ReadLine();
+                string baunRate = sr.ReadLine();
+                string dataBits = sr.ReadLine();
+                string parity = sr.ReadLine();
+                string stopBits = sr.ReadLine();
+                sr.Close();
+                System.Threading.Thread.Sleep(500);
+                StreamWriter sw = new StreamWriter("config.txt");
+                sw.WriteLine(folderPath);
+                sw.WriteLine(port);
+                sw.WriteLine(baunRate);
+                sw.WriteLine(dataBits);
+                sw.WriteLine(parity);
+                sw.WriteLine(stopBits);
+                sw.Close();
+            }
+        }
+
+        private void btOpenConnection_Click(object sender, EventArgs e)
+        {
+            try
+            {   if (btOpenConnection.Text == "Open connection")
+                {
+                    k = 1;
+                    serialPort.Open();
+                    // Displays the MessageBox.
+                    MessageBox.Show("Successfull connection.","CONNECTION",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
+                    btOpenConnection.Text = "Close connection";
+                    btSendFile.Enabled = true;
+                   
+                    communicationToolStripMenuItem.Enabled = false;
+                }
+                else if (btOpenConnection.Text == "Close connection") {
+                    serialPort.Close();
+                    // Displays the MessageBox.
+                    MessageBox.Show("Successfull disconnection.", "CONNECTION", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    btOpenConnection.Text = "Open connection";
+                    btSendFile.Enabled = false;
+                   
+                    communicationToolStripMenuItem.Enabled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                 MessageBox.Show("Unsuccessfull operation.\nSet up your connection in Preferences->Connection. ","ERROR",MessageBoxButtons.OKCancel,MessageBoxIcon.Error );
+                addError("Cannot open or close serial port ->\n"+ ex.StackTrace);
+            }
+        }
+
+        private void addError(string stackTrace)
+        {
+            StreamWriter errorLog = new StreamWriter("Error Log.txt");
+            errorLog.Write(stackTrace);
+            errorLog.Close();
+        }
+
+        private void serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            try
+            {
+                if (k == 1)
+                {
+                    path = DateTime.Now.Day + "_" + DateTime.Now.Month + "_" + DateTime.Now.Year + "  " + DateTime.Now.Hour + "_" + DateTime.Now.Minute + "_" + DateTime.Now.Second;
+
+
+
+                    StreamWriter sw = new StreamWriter(folderPath + path + ".txt");
+
+
+                    string line;
+                    while ((line = serialPort.ReadLine()) != "W\r")
+                    {
+                        sw.WriteLine(line);
+                    }
+                    sw.Close();
+
+                    object missing = System.Reflection.Missing.Value;
+                    var excelApp = new Microsoft.Office.Interop.Excel.Application();
+
+                    excelApp.Workbooks.OpenText(folderPath + path + ".txt",
+                        missing, missing,
+                        XlTextParsingType.xlDelimited,
+                        XlTextQualifier.xlTextQualifierNone,
+                        missing, missing, missing, true, missing, missing, missing,
+                        missing, missing, missing, missing, missing, missing);
+
+                    Workbook wb = excelApp.ActiveWorkbook;
+                    Worksheet ws = wb.ActiveSheet;
+                    ws.Columns.ColumnWidth = 25;
+                    excelApp.ActiveWorkbook.SaveAs(folderPath + path + ".xls",
+                    XlFileFormat.xlXMLSpreadsheet, missing, missing,
+                    false, false, XlSaveAsAccessMode.xlNoChange,
+                    missing, missing, missing, missing, missing);
+
+
+                    excelApp.ActiveWorkbook.Close();
+                    excelApp.Workbooks.Close();
+                    int id;
+                    GetWindowThreadProcessId(excelApp.Hwnd, out id);
+                    System.Diagnostics.Process excelProcess = System.Diagnostics.Process.GetProcessById(id);
+                    excelApp.Quit();
+                    excelProcess.Kill();
+                    Marshal.ReleaseComObject(excelApp);
+                    File.Delete(folderPath + path + ".txt");
+                    enableButton(btViewFile, true);
+                    MessageBox.Show("Report successfully recieved. ", "REPORT", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                k++;
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Unsuccessfull recieving file.\nTry again to send file from terminal. ", "ERROR", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                addError("Unsuccessfull recieving file ->\n"+ ex.StackTrace);
+            } 
+        }
+        delegate void enabledButtonCallBack(System.Windows.Forms.Button bt,bool bul);
+        private void enableButton(System.Windows.Forms.Button bt, bool bul)
+        {
+            if (bt.InvokeRequired)
+            {
+                enabledButtonCallBack d = new enabledButtonCallBack(enableButton);
+                this.Invoke(d, new object[] { bt,bul });
+            }
+            else
+            {
+                bt.Enabled = bul;
+            }
+        }
+        private static void SendTextFile(SerialPort port, string FileName)
+        {
+            StreamReader sr = new StreamReader(FileName);
+            string text = sr.ReadToEnd();
+            sr.Close();
+            System.Threading.Thread.Sleep(500);
+            port.Write(text);
+            
+        }
+        private void btViewFile_Click(object sender, EventArgs e)
+        {
+            var excelApp = new Microsoft.Office.Interop.Excel.Application();
+            try
+            {
+
+                excelApp.Workbooks.Open(folderPath + "\\" + path + ".xls");
+
+                excelApp.Visible = true;
+            }
+            catch (Exception ex) {
+
+                MessageBox.Show("Error: Cannot read file.\nTry to send it again.","ERROR",MessageBoxButtons.OKCancel,MessageBoxIcon.Error);
+                addError("Cannot read file.\nTry to send it again ->\n"+ ex.StackTrace);
+            }
+        }
+
+        private void choseFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string filePath = "";
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+            openFileDialog1.InitialDirectory = folderPath;
+            openFileDialog1.Filter = "xls files (*.xls)|*.xls|All files (*.*)|*.*";
+            openFileDialog1.FilterIndex = 1;
+            openFileDialog1.RestoreDirectory = true;
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    if ((filePath = openFileDialog1.FileName) != null)
+                    {
+
+                        var excelApp = new Microsoft.Office.Interop.Excel.Application();
+                        excelApp.Workbooks.Open(filePath);
+                        excelApp.Visible = true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: Could not read file from disk.");
+                    addError("Could not read file from disk ->\n"+ ex.StackTrace);
+
+                }
+            }
+        }
+
+        private void btSendFile_Click(object sender, EventArgs e)
+        {
+            string filePath = "";
+            
+            
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+            openFileDialog1.InitialDirectory = folderPath;
+            openFileDialog1.Filter = "xls files (*.xls)|*.xls|All files (*.*)|*.*";
+            openFileDialog1.FilterIndex = 1;
+            openFileDialog1.RestoreDirectory = true;
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    if ((filePath = openFileDialog1.FileName) != null)
+                    {
+                        object missing = System.Reflection.Missing.Value;
+                        var excelApp = new Microsoft.Office.Interop.Excel.Application();
+
+                        excelApp.Workbooks.Open(filePath);
+
+
+
+                        excelApp.ActiveWorkbook.SaveAs(AppDomain.CurrentDomain.BaseDirectory+"sendFile.txt",
+                        XlFileFormat.xlTextWindows, missing, missing,
+                        false, false, XlSaveAsAccessMode.xlNoChange,
+                        missing, missing, missing, missing, missing);
+                        excelApp.ActiveWorkbook.Save();
+                        
+                        int id;
+                        GetWindowThreadProcessId(excelApp.Hwnd, out id);
+                        System.Diagnostics.Process excelProcess = System.Diagnostics.Process.GetProcessById(id);
+                        excelApp.Quit();
+                        excelProcess.Kill();
+                        Marshal.ReleaseComObject(excelApp);
+                        
+                        btSendFile.Enabled = false;
+                        progressBar1.Visible = true;
+                        
+                        progressBar1.Value = progressBar1.Minimum;
+                        System.Threading.Thread.Sleep(1000);
+                        progressBar1.Value = progressBar1.Maximum/5;
+                        System.Threading.Thread.Sleep(1000);
+                        progressBar1.Value = progressBar1.Maximum*2/5;
+                        System.Threading.Thread.Sleep(1000);
+                        progressBar1.Value = progressBar1.Maximum * 3 / 5;
+                        System.Threading.Thread.Sleep(1000);
+                        progressBar1.Value = progressBar1.Maximum * 4 / 5;
+                        System.Threading.Thread.Sleep(1000);
+                        progressBar1.Value = progressBar1.Maximum * 5 / 5;
+                        System.Threading.Thread.Sleep(500);
+                        SendTextFile(serialPort, AppDomain.CurrentDomain.BaseDirectory + "sendFile.txt");
+                        progressBar1.Visible = false;
+                      
+                        btSendFile.Enabled = true;
+                        File.Delete(AppDomain.CurrentDomain.BaseDirectory + "sendFile.txt");
+                        MessageBox.Show("File was Successfully sent.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
+                    
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: Cannot send file.","ERROR",MessageBoxButtons.OKCancel,MessageBoxIcon.Error);
+                    addError("Cannot send file ->\n"+ex.StackTrace);
+
+                }
+            }
+        }
+
+        private void communicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Comunication c = new Comunication();
+                c.ShowDialog();
+                serialPort.Parity = c.parity;
+                serialPort.StopBits = c.stopBits;
+                serialPort.PortName = c.port;
+                serialPort.BaudRate = c.baudRate;
+                serialPort.DataBits = c.DataBits;
+            }
+            catch(Exception ex) {
+                addError("Bad communication set up ->\n" + ex.StackTrace);
+            }
+        }
+
+        private void MACSBusTicketing_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                StreamReader sr = new StreamReader("config.txt");
+                folderPath = sr.ReadLine();
+                serialPort.PortName = sr.ReadLine();
+                serialPort.BaudRate = Convert.ToInt32(sr.ReadLine());
+                serialPort.DataBits = Convert.ToInt32(sr.ReadLine());
+                string parity = sr.ReadLine();
+                switch (parity)
+                {
+                    case "None":
+                        serialPort.Parity = Parity.None;
+                        break;
+                    case "Odd":
+                        serialPort.Parity = Parity.Odd;
+                        break;
+                    case "Even":
+                        serialPort.Parity = Parity.Even;
+                        break;
+                    case "Mark":
+                        serialPort.Parity = Parity.Mark;
+                        break;
+                    case "Space":
+                        serialPort.Parity = Parity.Space;
+                        break;
+
+                }
+                string stopBits = sr.ReadLine();
+                switch (stopBits)
+                {
+                    case "None":
+                        serialPort.StopBits = StopBits.None;
+                        break;
+                    case "One":
+                        serialPort.StopBits = StopBits.One;
+                        break;
+                    case "Two":
+                        serialPort.StopBits = StopBits.Two;
+                        break;
+                    case "OnePointFive":
+                        serialPort.StopBits = StopBits.OnePointFive;
+                        break;
+
+                }
+                sr.Close();
+            }
+            catch (Exception ex){
+                addError("Not possible to read config file ->\n" + ex.StackTrace);
+            }
+        }
+    }
+   
+}

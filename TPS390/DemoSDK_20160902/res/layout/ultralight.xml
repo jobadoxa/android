@@ -1,0 +1,35 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include layout="@layout/titlebar" />
+    
+    <EditText
+        android:id="@+id/input_number"
+        android:layout_width="fill_parent"
+        android:layout_height="80dp"
+        android:inputType="number"
+        android:maxLength="4"
+        android:singleLine="true"
+        android:textSize="20sp" /> 
+
+    <Button
+        android:id="@+id/read"
+        style="@style/buttonNumberStyle"
+        android:layout_width="fill_parent"
+        android:layout_height="80dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/button_number_violet_shape"
+        android:text="@string/ul_read_card" />
+
+    <Button
+        android:id="@+id/write"
+        style="@style/buttonNumberStyle"
+        android:layout_width="fill_parent"
+        android:layout_height="80dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/button_number_violet_shape"
+        android:text="@string/ul_write_card" />
+
+</LinearLayout>

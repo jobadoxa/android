@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="button_login_background" format="reference" />
+    <attr name="button_number_background" format="reference" />
+    <attr name="button_function_background" format="reference" />
+    <attr name="shoufei_table_border_color" format="color" />
+    <attr name="button_function_noborder_background" format="reference" />
+    <attr name="button_clear_back_background" format="reference" />
+    <attr name="main_title_color" format="color" />
+    <attr name="main_frame_color" format="color" />
+    <attr name="main_welcome_title_color" format="color" />
+    <attr name="main_bottom_color" format="color" />
+    <attr name="main_welcome_title_text_color" format="color" />
+    <attr name="main_welcome_title_content_color" format="color" />
+    <attr name="main_shoufeimingxi_listtv_style" format="reference" />
+    <attr name="main_border_style" format="reference" />
+    <attr name="main_list_padding" format="dimension" />
+    <attr name="main_table_title_color" format="color" />
+    <attr name="login_text_style" format="reference" />
+    <attr name="spinerbackground_style" format="reference" />
+    <attr name="menuborder_style" format="reference" />
+    <attr name="listview_divide_color" format="color" />
+    <attr name="listview_divide_height" format="dimension" />
+	<attr name="upper_right_corner" format="reference" />
+	<attr name="imgnetwork_background" format="reference" /> 
+	<attr name="dialogclose_background" format="reference" /> 
+</resources>
